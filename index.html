@@ -231,6 +231,85 @@
             </div>
         </section>
 
+        <!-- Live Reports & Updates Section -->
+        <section id="reports" style="background: #11151c;">
+            <div class="container">
+                <h2>📢 Live Reports & Updates</h2>
+                <p style="color: var(--text-secondary); margin-bottom: 30px;">
+                    Real-time field reports from <strong style="color: var(--accent-info);">#WinterStormGianna</strong>
+                    and <strong style="color: var(--accent-info);">#BombCyclone2026</strong>.
+                </p>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px;">
+                    <!-- Twitter/X Feed - WinterStormGianna -->
+                    <div
+                        style="background: var(--card-bg); border-radius: 12px; border: 1px solid var(--border-color); overflow: hidden;">
+                        <div
+                            style="padding: 15px; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; gap: 10px;">
+                            <span style="font-size: 1.5rem;">𝕏</span>
+                            <div>
+                                <h4 style="margin: 0;">#WinterStormGianna</h4>
+                                <span style="color: var(--text-muted); font-size: 0.85rem;">Live posts from X</span>
+                            </div>
+                        </div>
+                        <a class="twitter-timeline" data-height="500" data-theme="dark" data-chrome="noheader nofooter"
+                            href="https://twitter.com/search?q=%23WinterStormGianna">
+                            Loading #WinterStormGianna tweets...
+                        </a>
+                    </div>
+
+                    <!-- Twitter/X Feed - BombCyclone2026 -->
+                    <div
+                        style="background: var(--card-bg); border-radius: 12px; border: 1px solid var(--border-color); overflow: hidden;">
+                        <div
+                            style="padding: 15px; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; gap: 10px;">
+                            <span style="font-size: 1.5rem;">𝕏</span>
+                            <div>
+                                <h4 style="margin: 0;">#BombCyclone2026</h4>
+                                <span style="color: var(--text-muted); font-size: 0.85rem;">Live posts from X</span>
+                            </div>
+                        </div>
+                        <a class="twitter-timeline" data-height="500" data-theme="dark" data-chrome="noheader nofooter"
+                            href="https://twitter.com/search?q=%23BombCyclone2026">
+                            Loading #BombCyclone2026 tweets...
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links to Official Sources -->
+                <div style="margin-top: 30px; display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;">
+                    <a href="https://twitter.com/NWS" target="_blank"
+                        style="background: var(--card-bg); padding: 12px 20px; border-radius: 8px; border: 1px solid var(--border-color); text-decoration: none; color: var(--text-primary); display: flex; align-items: center; gap: 8px; transition: background 0.2s;"
+                        onmouseover="this.style.background='var(--border-color)'"
+                        onmouseout="this.style.background='var(--card-bg)'">
+                        <span>🌐</span> @NWS Official
+                    </a>
+                    <a href="https://twitter.com/NWSBoston" target="_blank"
+                        style="background: var(--card-bg); padding: 12px 20px; border-radius: 8px; border: 1px solid var(--border-color); text-decoration: none; color: var(--text-primary); display: flex; align-items: center; gap: 8px; transition: background 0.2s;"
+                        onmouseover="this.style.background='var(--border-color)'"
+                        onmouseout="this.style.background='var(--card-bg)'">
+                        <span>🌨️</span> @NWSBoston
+                    </a>
+                    <a href="https://twitter.com/NWSNewYorkNY" target="_blank"
+                        style="background: var(--card-bg); padding: 12px 20px; border-radius: 8px; border: 1px solid var(--border-color); text-decoration: none; color: var(--text-primary); display: flex; align-items: center; gap: 8px; transition: background 0.2s;"
+                        onmouseover="this.style.background='var(--border-color)'"
+                        onmouseout="this.style.background='var(--card-bg)'">
+                        <span>🗽</span> @NWSNewYorkNY
+                    </a>
+                    <a href="https://twitter.com/TheWeatherChannel" target="_blank"
+                        style="background: var(--card-bg); padding: 12px 20px; border-radius: 8px; border: 1px solid var(--border-color); text-decoration: none; color: var(--text-primary); display: flex; align-items: center; gap: 8px; transition: background 0.2s;"
+                        onmouseover="this.style.background='var(--border-color)'"
+                        onmouseout="this.style.background='var(--card-bg)'">
+                        <span>📺</span> @weatherchannel
+                    </a>
+                </div>
+
+                <p style="text-align: center; margin-top: 25px; font-size: 0.85rem; color: var(--text-muted);">
+                    Live feeds powered by X (Twitter) | Refresh page for latest updates
+                </p>
+            </div>
+        </section>
+
         <!-- Weather Model Comparison Section -->
         <section id="models" style="background: var(--bg-color);">
             <div class="container">
@@ -666,6 +745,8 @@
     </footer>
 
     <script src="js/tracker.js"></script>
+    <!-- Twitter Widget Script for Live Reports -->
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
 
 </html>
