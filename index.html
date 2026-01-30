@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOMB CYCLONE 2026 | Real-Time Awareness & Survival Guide</title>
+    <meta name="description"
+        content="Stay informed about the January 2026 Bomb Cyclone. Real-time storm tracking, snowfall maps, and survival tips for the East Coast.">
+    <link rel="canonical" href="https://bombcyclone2026.com/">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8456317857596950"
+        crossorigin="anonymous"></script>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bombcyclone2026.com/">
+    <meta property="og:title" content="BOMB CYCLONE 2026 | Real-Time Storm Tracker & Survival">
+    <meta property="og:description"
+        content="Historic winter storm impacting the entire U.S. East Coast. Live radar, snowfall forecasts, and survival guides.">
+    <meta property="og:image" content="https://bombcyclone2026.com/images/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://bombcyclone2026.com/">
+    <meta name="twitter:title" content="BOMB CYCLONE 2026 | Real-Time Storm Tracker">
+    <meta name="twitter:description"
+        content="Historic winter storm impacting the entire U.S. East Coast. Live radar, snowfall forecasts, and survival guides.">
+    <meta name="twitter:image" content="https://bombcyclone2026.com/images/og-image.jpg">
+
+    <!-- Schema.org JSON-LD: Event -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "Winter Storm Gianna - Bomb Cyclone 2026",
+        "startDate": "2026-01-30T18:00:00-05:00",
+        "endDate": "2026-02-01T12:00:00-05:00",
+        "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "location": {
+            "@type": "Place",
+            "name": "U.S. East Coast",
+            "address": {
+                "@type": "PostalAddress",
+                "addressRegion": "Eastern Seaboard",
+                "addressCountry": "US"
+            }
+        },
+        "image": "https://bombcyclone2026.com/images/og-image.jpg",
+        "description": "A historic Bomb Cyclone bringing blizzard conditions to the entire U.S. East Coast from South Carolina to Maine.",
+        "organizer": {
+            "@type": "Organization",
+            "name": "bombcyclone2026.com",
+            "url": "https://bombcyclone2026.com"
+        }
+    }
+    </script>
+
+    <!-- Schema.org JSON-LD: FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "When does Winter Storm Gianna start?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Winter Storm Gianna is expected to begin impacting mid-Atlantic states Friday evening (January 30th, 2026) and continue through Saturday night into Sunday morning for New England."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How much snow will Winter Storm Gianna bring?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Snowfall totals are forecast to range from 3-8 inches in the mid-Atlantic to 6-14 inches for Coastal New England. Coastal areas may also experience blizzard conditions with wind gusts up to 70 mph."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What states are affected by the Bomb Cyclone 2026?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The Bomb Cyclone is expected to impact South Carolina, North Carolina, Virginia, Maryland, Delaware, New Jersey, New York, Connecticut, Rhode Island, Massachusetts, New Hampshire, and Maine."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+</head>
+
+<body>
+    <div class="emergency-ticker">
+        <div class="ticker-content">
+            ⚠️ EMERGENCY ALERT: BOMB CYCLONE RAPIDLY INTENSIFYING. UP TO 1 FOOT OF SNOW FORECAST FOR SOUTH CAROLINA TO
+            NEW ENGLAND. BLIZZARD WARNINGS IN EFFECT. ⚠️
+        </div>
+    </div>
+
+    <header>
+        <div class="container"
+            style="display: flex; justify-content: space-between; align-items: center; padding: 15px 0;">
+            <div class="logo" style="font-weight: 800; font-size: 1.5rem; letter-spacing: -1px;">
+                BOMB<span style="color: var(--accent-warning);">CYCLONE</span>2026
+            </div>
+            <nav>
+                <a href="#tracker" style="color: white; margin-left: 20px; text-decoration: none;">Live Tracker</a>
+                <a href="#guides" style="color: white; margin-left: 20px; text-decoration: none;">Survival Guides</a>
+                <div style="display: inline-block; position: relative; margin-left: 20px;">
+                    <span style="color: var(--accent-warning); cursor: pointer; font-weight: bold;">Regional Hubs
+                        ▼</span>
+                    <div style="position: absolute; background: var(--card-bg); border: 1px solid var(--border-color); padding: 15px; border-radius: 8px; right: 0; min-width: 320px; z-index: 1001; visibility: hidden; display: grid; grid-template-columns: 1fr 1fr; gap: 5px 15px;"
+                        id="state-dropdown">
+                        <a href="states/me-updates.html"
+                            style="color: white; padding: 3px 0; text-decoration: none; font-size: 0.9rem;">Maine</a>
+                        <a href="states/nh-updates.html"
+                            style="color: white; padding: 3px 0; text-decoration: none; font-size: 0.9rem;">New
+                            Hampshire</a>
+                        <a href="states/ma-updates.html"
+                            style="color: white; padding: 3px 0; text-decoration: none; font-size: 0.9rem;">Massachusetts</a>
+                        <a href="states/ri-updates.html"
+                            style="color: white; padding: 3px 0; text-decoration: none; font-size: 0.9rem;">Rhode
+                            Island</a>
+                        <a href="states/ct-updates.html"
+                            style="color: white; padding: 3px 0; text-decoration: none; font-size: 0.9rem;">Connecticut</a>
+                        <a href="states/ny-updates.html"
+                            style="color: white; padding: 3px 0; text-decoration: none; font-size: 0.9rem;">New York</a>
+                        <a href="states/nj-updates.html"
+                            style="color: white; padding: 3px 0; text-decoration: none; font-size: 0.9rem;">New
+                            Jersey</a>
+                        <a href="states/de-updates.html"
+                            style="color: white; padding: 3px 0; text-decoration: none; font-size: 0.9rem;">Delaware</a>
+                        <a href="states/md-updates.html"
+                            style="color: white; padding: 3px 0; text-decoration: none; font-size: 0.9rem;">Maryland</a>
+                        <a href="states/va-updates.html"
+                            style="color: white; padding: 3px 0; text-decoration: none; font-size: 0.9rem;">Virginia</a>
+                        <a href="states/nc-updates.html"
+                            style="color: white; padding: 3px 0; text-decoration: none; font-size: 0.9rem;">North
+                            Carolina</a>
+                        <a href="states/sc-updates.html"
+                            style="color: white; padding: 3px 0; text-decoration: none; font-size: 0.9rem;">South
+                            Carolina</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>WINTER STORM GIANNA</h1>
+                <p id="impact-countdown"
+                    style="font-size: 1.2rem; font-weight: bold; color: var(--accent-info); margin-bottom: 20px;">
+                    CALCULATING IMPACT...</p>
+                <div class="storm-gauge" id="storm-intensity">964 mb</div>
+                <p style="max-width: 600px; margin: 0 auto; color: var(--text-secondary);">
+                    Current Central Pressure. Rapid intensification observed. A historic winter event is unfolding
+                    across the entire US East Coast.
+                </p>
+                <div style="margin-top: 40px;">
+                    <a href="#prep" class="btn btn-primary">Get Prepared Now</a>
+                    <a href="https://www.amazon.com/s?k=emergency+winter+kit&tag=bombcyclone26-20"
+                        class="btn btn-danger" style="margin-left: 10px;">Buy Survival Gear</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Peak Gusts</h3>
+                    <div class="value">85 MPH</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Max Snowfall</h3>
+                    <div class="value">14 IN</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Affected Area</h3>
+                    <div class="value">15 STATES</div>
+                </div>
+            </div>
+        </div>
+
+        <section id="tracker">
+            <div class="container">
+                <h2>Live Storm Tracker</h2>
+                <div id="map"
+                    style="height: 500px; border-radius: 12px; border: 1px solid var(--border-color); background: var(--card-bg);">
+                    <div style="display: flex; align-items: center; justify-content: center; height: 100%;">
+                        <p style="color: var(--text-secondary);">Initializing Radar Map...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NWS Weather Alerts Section -->
+        <section id="alerts" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
+            <div class="container">
+                <h2>🚨 Live NWS Weather Alerts</h2>
+                <p style="color: var(--text-secondary); margin-bottom: 25px;">Real-time winter weather warnings,
+                    watches, and advisories from the National Weather Service for the Eastern Seaboard.</p>
+                <div id="nws-alerts">
+                    <div style="text-align: center; padding: 40px;">
+                        <div class="loading-spinner"
+                            style="width: 40px; height: 40px; border: 3px solid var(--border-color); border-top-color: var(--accent-warning); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 15px;">
+                        </div>
+                        <p style="color: var(--text-secondary);">Loading NWS Alerts...</p>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 20px; font-size: 0.85rem; color: var(--text-muted);">
+                    Data Source: <a href="https://www.weather.gov" target="_blank"
+                        style="color: var(--accent-info);">National Weather Service</a> | Auto-refreshes every 5 minutes
+                </p>
+            </div>
+        </section>
+
+        <!-- Weather Model Comparison Section -->
+        <section id="models" style="background: var(--bg-color);">
+            <div class="container">
+                <h2>🌀 Weather Model Breakdown</h2>
+                <p style="color: var(--text-secondary); margin-bottom: 30px; max-width: 800px;">
+                    Professional meteorologists use multiple computer models to forecast storms. Here's what each major
+                    model is predicting for Winter Storm Gianna.
+                </p>
+
+                <!-- Model Explainer Cards -->
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 40px;">
+
+                    <!-- GFS Model -->
+                    <div
+                        style="background: var(--card-bg); border-radius: 12px; padding: 25px; border: 1px solid var(--border-color);">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 15px;">
+                            <span
+                                style="background: #3b82f6; padding: 10px; border-radius: 8px; font-size: 1.5rem;">🇺🇸</span>
+                            <div>
+                                <h3 style="margin: 0; font-size: 1.2rem;">GFS (American)</h3>
+                                <span style="color: var(--text-muted); font-size: 0.85rem;">Global Forecast
+                                    System</span>
+                            </div>
+                        </div>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 15px;">
+                            NOAA's primary global model. Updates every 6 hours. Good for big-picture trends 3-7 days
+                            out, but can struggle with storm intensity.
+                        </p>
+                        <div
+                            style="background: rgba(59, 130, 246, 0.1); padding: 12px; border-radius: 8px; border-left: 3px solid #3b82f6;">
+                            <strong style="color: #3b82f6;">GFS Prediction:</strong>
+                            <p style="margin: 5px 0 0; color: var(--text-secondary); font-size: 0.9rem;">
+                                6-10" for Boston, 4-8" NYC. Storm tracks slightly offshore, limiting totals for
+                                immediate coast.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Euro Model -->
+                    <div
+                        style="background: var(--card-bg); border-radius: 12px; padding: 25px; border: 1px solid var(--border-color);">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 15px;">
+                            <span
+                                style="background: #10b981; padding: 10px; border-radius: 8px; font-size: 1.5rem;">🇪🇺</span>
+                            <div>
+                                <h3 style="margin: 0; font-size: 1.2rem;">ECMWF (Euro)</h3>
+                                <span style="color: var(--text-muted); font-size: 0.85rem;">European Centre Model</span>
+                            </div>
+                        </div>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 15px;">
+                            Often considered the most accurate model worldwide. Excellent at predicting storm track and
+                            intensity 4-10 days out.
+                        </p>
+                        <div
+                            style="background: rgba(16, 185, 129, 0.1); padding: 12px; border-radius: 8px; border-left: 3px solid #10b981;">
+                            <strong style="color: #10b981;">Euro Prediction:</strong>
+                            <p style="margin: 5px 0 0; color: var(--text-secondary); font-size: 0.9rem;">
+                                8-14" for Boston, 6-10" NYC. Closer track to coast = higher totals. Cape Cod could see
+                                12"+.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- NAM Model -->
+                    <div
+                        style="background: var(--card-bg); border-radius: 12px; padding: 25px; border: 1px solid var(--border-color);">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 15px;">
+                            <span
+                                style="background: #f59e0b; padding: 10px; border-radius: 8px; font-size: 1.5rem;">🎯</span>
+                            <div>
+                                <h3 style="margin: 0; font-size: 1.2rem;">NAM (Short-Range)</h3>
+                                <span style="color: var(--text-muted); font-size: 0.85rem;">North American
+                                    Mesoscale</span>
+                            </div>
+                        </div>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 15px;">
+                            Best for 0-60 hour forecasts. High resolution captures local effects like terrain and
+                            coastal enhancement.
+                        </p>
+                        <div
+                            style="background: rgba(245, 158, 11, 0.1); padding: 12px; border-radius: 8px; border-left: 3px solid #f59e0b;">
+                            <strong style="color: #f59e0b;">NAM Prediction:</strong>
+                            <p style="margin: 5px 0 0; color: var(--text-secondary); font-size: 0.9rem;">
+                                Highest snowfall rates 1-3"/hour during peak. Heavy banding possible over SE New
+                                England.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Canadian Model -->
+                    <div
+                        style="background: var(--card-bg); border-radius: 12px; padding: 25px; border: 1px solid var(--border-color);">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 15px;">
+                            <span
+                                style="background: #ef4444; padding: 10px; border-radius: 8px; font-size: 1.5rem;">🇨🇦</span>
+                            <div>
+                                <h3 style="margin: 0; font-size: 1.2rem;">CMC (Canadian)</h3>
+                                <span style="color: var(--text-muted); font-size: 0.85rem;">Canadian Meteorological
+                                    Centre</span>
+                            </div>
+                        </div>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 15px;">
+                            Often shows different solutions than American models. Useful for identifying alternative
+                            scenarios.
+                        </p>
+                        <div
+                            style="background: rgba(239, 68, 68, 0.1); padding: 12px; border-radius: 8px; border-left: 3px solid #ef4444;">
+                            <strong style="color: #ef4444;">CMC Prediction:</strong>
+                            <p style="margin: 5px 0 0; color: var(--text-secondary); font-size: 0.9rem;">
+                                Slightly weaker storm. 4-8" Boston, 3-6" NYC. Faster exit = shorter duration event.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Model Consensus Summary -->
+                <div
+                    style="background: linear-gradient(135deg, var(--card-bg) 0%, #1a1f2e 100%); border-radius: 12px; padding: 30px; border: 1px solid var(--accent-warning); margin-bottom: 30px;">
+                    <h3 style="color: var(--accent-warning); margin-bottom: 15px;">📊 Model Consensus Summary</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                        <div>
+                            <h4 style="color: var(--text-primary); margin-bottom: 8px;">What Models Agree On:</h4>
+                            <ul style="color: var(--text-secondary); padding-left: 20px; font-size: 0.95rem;">
+                                <li>Major nor'easter will impact East Coast</li>
+                                <li>Peak impacts Sunday into Monday</li>
+                                <li>Heaviest snow: Carolinas to SE New England</li>
+                                <li>60-70 mph wind gusts near coast</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--text-primary); margin-bottom: 8px;">Where Models Disagree:</h4>
+                            <ul style="color: var(--text-secondary); padding-left: 20px; font-size: 0.95rem;">
+                                <li>Exact storm track (±50 miles)</li>
+                                <li>Total snowfall amounts (±4")</li>
+                                <li>How quickly it exits</li>
+                                <li>NYC/Philly rain/snow line</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--text-primary); margin-bottom: 8px;">Confidence Level:</h4>
+                            <div
+                                style="background: var(--bg-color); padding: 15px; border-radius: 8px; text-align: center;">
+                                <div style="font-size: 2rem; font-weight: bold; color: var(--accent-warning);">HIGH
+                                </div>
+                                <p style="color: var(--text-muted); font-size: 0.85rem; margin: 5px 0 0;">Major storm is
+                                    certain.<br>Exact totals ± 4 inches.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Model Maps -->
+                <h3 style="margin-bottom: 20px;">🗺️ View Live Model Snowfall Maps</h3>
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 20px;">
+                    <a href="https://www.tropicaltidbits.com/analysis/models/?model=gfs&region=neus&pkg=asnow"
+                        target="_blank"
+                        style="background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); border-radius: 12px; padding: 30px; text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 15px; transition: transform 0.2s, box-shadow 0.2s;"
+                        onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 10px 30px rgba(59,130,246,0.3)'"
+                        onmouseout="this.style.transform='none'; this.style.boxShadow='none'">
+                        <span style="font-size: 3rem;">🇺🇸</span>
+                        <div style="text-align: center;">
+                            <h4 style="margin: 0 0 5px; color: white; font-size: 1.2rem;">GFS Snowfall Map</h4>
+                            <p style="margin: 0; color: rgba(255,255,255,0.8); font-size: 0.9rem;">American Model •
+                                Updated every 6 hours</p>
+                        </div>
+                        <span
+                            style="background: rgba(255,255,255,0.2); padding: 8px 20px; border-radius: 20px; color: white; font-weight: 600;">View
+                            Live Animation →</span>
+                    </a>
+                    <a href="https://www.tropicaltidbits.com/analysis/models/?model=ecmwf&region=neus&pkg=asnow"
+                        target="_blank"
+                        style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); border-radius: 12px; padding: 30px; text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 15px; transition: transform 0.2s, box-shadow 0.2s;"
+                        onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 10px 30px rgba(16,185,129,0.3)'"
+                        onmouseout="this.style.transform='none'; this.style.boxShadow='none'">
+                        <span style="font-size: 3rem;">🇪🇺</span>
+                        <div style="text-align: center;">
+                            <h4 style="margin: 0 0 5px; color: white; font-size: 1.2rem;">Euro (ECMWF) Snowfall</h4>
+                            <p style="margin: 0; color: rgba(255,255,255,0.8); font-size: 0.9rem;">European Model • Most
+                                accurate globally</p>
+                        </div>
+                        <span
+                            style="background: rgba(255,255,255,0.2); padding: 8px 20px; border-radius: 20px; color: white; font-weight: 600;">View
+                            Live Animation →</span>
+                    </a>
+                    <a href="https://www.tropicaltidbits.com/analysis/models/?model=nam&region=neus&pkg=asnow"
+                        target="_blank"
+                        style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); border-radius: 12px; padding: 30px; text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 15px; transition: transform 0.2s, box-shadow 0.2s;"
+                        onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 10px 30px rgba(245,158,11,0.3)'"
+                        onmouseout="this.style.transform='none'; this.style.boxShadow='none'">
+                        <span style="font-size: 3rem;">🎯</span>
+                        <div style="text-align: center;">
+                            <h4 style="margin: 0 0 5px; color: white; font-size: 1.2rem;">NAM Snowfall Map</h4>
+                            <p style="margin: 0; color: rgba(255,255,255,0.8); font-size: 0.9rem;">Short-range • High
+                                resolution detail</p>
+                        </div>
+                        <span
+                            style="background: rgba(255,255,255,0.2); padding: 8px 20px; border-radius: 20px; color: white; font-weight: 600;">View
+                            Live Animation →</span>
+                    </a>
+                    <a href="https://www.pivotalweather.com/model.php?p=snow_acc&m=ecmwf" target="_blank"
+                        style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); border-radius: 12px; padding: 30px; text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 15px; transition: transform 0.2s, box-shadow 0.2s;"
+                        onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 10px 30px rgba(139,92,246,0.3)'"
+                        onmouseout="this.style.transform='none'; this.style.boxShadow='none'">
+                        <span style="font-size: 3rem;">📊</span>
+                        <div style="text-align: center;">
+                            <h4 style="margin: 0 0 5px; color: white; font-size: 1.2rem;">Pivotal Weather</h4>
+                            <p style="margin: 0; color: rgba(255,255,255,0.8); font-size: 0.9rem;">Model comparison •
+                                Side-by-side view</p>
+                        </div>
+                        <span
+                            style="background: rgba(255,255,255,0.2); padding: 8px 20px; border-radius: 20px; color: white; font-weight: 600;">Compare
+                            Models →</span>
+                    </a>
+                </div>
+
+                <p style="text-align: center; font-size: 0.85rem; color: var(--text-muted);">
+                    Model imagery from <a href="https://www.tropicaltidbits.com" target="_blank"
+                        style="color: var(--accent-info);">Tropicaltidbits.com</a> | Models update every 6-12 hours
+                </p>
+            </div>
+        </section>
+
+        <section id="guides" style="background: #11151c;">
+            <div class="container">
+                <h2>Essential Survival Guides</h2>
+                <div class="guide-grid">
+                    <div class="guide-card">
+                        <h3>Power Outage Guide</h3>
+                        <p>Learn how to safely use generators and keep your home warm without electricity.</p>
+                        <a href="guides/power-outage.html"
+                            style="color: var(--accent-info); display: block; margin-top: 15px;">Read More →</a>
+                    </div>
+                    <div class="guide-card">
+                        <h3>Vehicle Emergency Kit</h3>
+                        <p>Essential items to keep in your car if you must travel during the storm.</p>
+                        <a href="guides/vehicle-safety.html"
+                            style="color: var(--accent-info); display: block; margin-top: 15px;">Read More →</a>
+                    </div>
+                    <div class="guide-card">
+                        <h3>Pipe Protection</h3>
+                        <p>Steps to prevent your plumbing from freezing during sub-zero temperatures.</p>
+                        <a href="guides/home-maintenance.html"
+                            style="color: var(--accent-info); display: block; margin-top: 15px;">Read More →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="social" style="background: var(--bg-color);">
+            <div class="container">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+                    <div>
+                        <h2>Live Reports & Updates</h2>
+                        <p style="color: var(--text-secondary); margin-bottom: 20px;">Real-time field reports from
+                            #WinterStormGianna and #BombCyclone2026.</p>
+                        <!-- Simulated Twitter Feed -->
+                        <div
+                            style="background: var(--card-bg); border-radius: 12px; border: 1px solid var(--border-color); padding: 20px;">
+                            <div style="border-bottom: 1px solid var(--border-color); padding: 10px 0;">
+                                <span style="color: var(--accent-info); font-weight: bold;">@NWSColumbia</span>
+                                <p style="font-size: 0.9rem;">⚠️ BLIZZARD WARNING: Visibility falling to zero. DO NOT
+                                    TRAVEL. #Gianna</p>
+                            </div>
+                            <div style="border-bottom: 1px solid var(--border-color); padding: 10px 0;">
+                                <span style="color: var(--accent-info); font-weight: bold;">@WeatherChannel</span>
+                                <p style="font-size: 0.9rem;">Historic pressure drop recorded. Gianna is now a true Bomb
+                                    Cyclone.</p>
+                            </div>
+                            <div style="padding: 10px 0;">
+                                <span style="color: var(--accent-info); font-weight: bold;">@SC_Emergency</span>
+                                <p style="font-size: 0.9rem;">State of Emergency confirmed for all counties. #SCWX</p>
+                            </div>
+                            <a href="https://twitter.com/search?q=%23WinterStormGianna" target="_blank"
+                                class="btn btn-primary" style="width: 100%; text-align: center; margin-top: 10px;">View
+                                More on X</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="zipcheck" style="background: #11151c; text-align: center;">
+            <div class="container">
+                <h2>❄️ Check Your Snowfall Forecast</h2>
+                <p style="color: var(--text-secondary); margin-bottom: 30px;">Enter your ZIP code to get a personalized
+                    forecast for your area.</p>
+                <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+                    <input type="text" id="zip-input" placeholder="Enter ZIP (e.g., 10001)" maxlength="5"
+                        style="padding: 15px 25px; font-size: 1.1rem; border-radius: 8px; border: 1px solid var(--border-color); background: var(--card-bg); color: white; width: 200px;">
+                    <button onclick="checkZipSnow()" class="btn btn-primary" style="padding: 15px 30px;">Get My
+                        Forecast</button>
+                </div>
+                <div id="zip-result"
+                    style="margin-top: 30px; padding: 25px; background: var(--card-bg); border-radius: 12px; border: 1px solid var(--border-color); display: none;">
+                    <!-- Result will be injected here -->
+                </div>
+            </div>
+        </section>
+
+        <section id="outages" style="background: var(--bg-color);">
+            <div class="container">
+                <h2>⚡ Live Power Outage Tracker</h2>
+                <p style="color: var(--text-secondary); margin-bottom: 30px; text-align: center;">Real-time power outage
+                    data across the Eastern Seaboard. Track restoration efforts as Winter Storm Gianna unfolds.</p>
+
+                <!-- Large CTA to View Live Data -->
+                <div
+                    style="background: linear-gradient(135deg, var(--accent-danger), #cc3300); padding: 40px; border-radius: 12px; text-align: center; margin-bottom: 30px;">
+                    <h3 style="color: white; margin-bottom: 15px; font-size: 1.8rem;">🔴 Live Power Outage Map</h3>
+                    <p style="color: rgba(255,255,255,0.9); margin-bottom: 25px; font-size: 1.1rem;">Track real-time
+                        power outages across the Eastern Seaboard as Winter Storm Gianna unfolds.</p>
+                    <a href="https://poweroutage.us/" target="_blank" class="btn"
+                        style="background: white; color: var(--accent-danger); font-size: 1.3rem; padding: 18px 50px; font-weight: bold; border-radius: 8px;">
+                        View Live Outage Data →
+                    </a>
+                    <p style="color: rgba(255,255,255,0.7); margin-top: 15px; font-size: 0.9rem;">Powered by
+                        PowerOutage.us — Updated continuously</p>
+                </div>
+
+                <div
+                    style="text-align: center; padding: 20px; background: rgba(255,165,0,0.1); border-radius: 8px; border: 1px solid rgba(255,165,0,0.3);">
+                    <strong style="color: var(--accent-warning); font-size: 1.1rem;">⚠️ Report Your Outage</strong>
+                    <p style="color: var(--text-secondary); margin: 10px 0;">Contact your utility provider immediately
+                        to report power loss and get restoration estimates.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" style="background: var(--bg-color);">
+            <div class="container">
+                <h2>Frequently Asked Questions</h2>
+                <div style="max-width: 800px; margin: 0 auto; text-align: left;">
+                    <details
+                        style="background: var(--card-bg); padding: 20px; border-radius: 8px; margin-bottom: 15px; border: 1px solid var(--border-color);">
+                        <summary style="cursor: pointer; font-weight: bold; font-size: 1.1rem;">When does Winter Storm
+                            Gianna start?</summary>
+                        <p style="margin-top: 15px; color: var(--text-secondary);">Winter Storm Gianna is expected to
+                            begin impacting mid-Atlantic states Friday evening (January 30th, 2026) and continue through
+                            Saturday night into Sunday morning for New England.</p>
+                    </details>
+                    <details
+                        style="background: var(--card-bg); padding: 20px; border-radius: 8px; margin-bottom: 15px; border: 1px solid var(--border-color);">
+                        <summary style="cursor: pointer; font-weight: bold; font-size: 1.1rem;">How much snow will
+                            Winter Storm Gianna bring?</summary>
+                        <p style="margin-top: 15px; color: var(--text-secondary);">Snowfall totals are forecast to range
+                            from 3-8 inches in the mid-Atlantic to 6-14 inches for Coastal New England. Coastal areas
+                            may also experience blizzard conditions with wind gusts up to 75 mph.</p>
+                    </details>
+                    <details
+                        style="background: var(--card-bg); padding: 20px; border-radius: 8px; margin-bottom: 15px; border: 1px solid var(--border-color);">
+                        <summary style="cursor: pointer; font-weight: bold; font-size: 1.1rem;">What states are affected
+                            by the Bomb Cyclone 2026?</summary>
+                        <p style="margin-top: 15px; color: var(--text-secondary);">The Bomb Cyclone is expected to
+                            impact South Carolina, North Carolina, Virginia, Maryland, Delaware, New Jersey, New York,
+                            Connecticut, Rhode Island, Massachusetts, New Hampshire, and Maine.</p>
+                    </details>
+                    <details
+                        style="background: var(--card-bg); padding: 20px; border-radius: 8px; margin-bottom: 15px; border: 1px solid var(--border-color);">
+                        <summary style="cursor: pointer; font-weight: bold; font-size: 1.1rem;">What is a Bomb Cyclone?
+                        </summary>
+                        <p style="margin-top: 15px; color: var(--text-secondary);">A Bomb Cyclone is an extratropical
+                            cyclone that intensifies rapidly—with its central barometric pressure dropping at least 24
+                            millibars in 24 hours. This rapid intensification is called "bombogenesis" and leads to
+                            extreme winds and heavy precipitation.</p>
+                    </details>
+                    <details
+                        style="background: var(--card-bg); padding: 20px; border-radius: 8px; border: 1px solid var(--border-color);">
+                        <summary style="cursor: pointer; font-weight: bold; font-size: 1.1rem;">Should I evacuate or
+                            shelter in place?</summary>
+                        <p style="margin-top: 15px; color: var(--text-secondary);">In most cases, sheltering in place
+                            with adequate supplies is recommended. However, if you are in a flood-prone coastal area or
+                            a mobile home, consider relocating to a sturdier structure before the storm arrives. Always
+                            follow local emergency management guidance.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section id="monetize" style="text-align: center;">
+            <div class="container">
+                <div
+                    style="background: var(--accent-warning); color: #000; padding: 40px; border-radius: 12px; margin-bottom: 40px;">
+                    <div
+                        style="background: white; color: black; display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; margin-bottom: 15px;">
+                        TOP SURVIVAL RECOMMENDATION</div>
+                    <h2>72-Hour Emergency Survival Kit</h2>
+                    <p style="max-width: 600px; margin: 0 auto 20px;">Complete 2-person kit includes food, water, first
+                        aid, flashlight, emergency blankets, and more. Ready to grab when the power goes out.</p>
+                    <div
+                        style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-bottom: 25px;">
+                        <span
+                            style="background: rgba(0,0,0,0.1); padding: 8px 15px; border-radius: 20px; font-size: 0.9rem;">✅
+                            4.5+ Star Rating</span>
+                        <span
+                            style="background: rgba(0,0,0,0.1); padding: 8px 15px; border-radius: 20px; font-size: 0.9rem;">✅
+                            Ships Same Day</span>
+                        <span
+                            style="background: rgba(0,0,0,0.1); padding: 8px 15px; border-radius: 20px; font-size: 0.9rem;">✅
+                            2-Person Kit</span>
+                    </div>
+                    <div style="margin-top: 25px;">
+                        <a href="https://www.amazon.com/s?k=72+hour+emergency+survival+kit&tag=gwaservices06-20"
+                            target="_blank" class="btn btn-danger" style="font-size: 1.2rem; padding: 15px 30px;">Shop
+                            Emergency Kits on Amazon →</a>
+                    </div>
+                    <p style="margin-top: 15px; font-size: 0.8rem; opacity: 0.7;">(Affiliate link - we may earn a
+                        commission)</p>
+                </div>
+
+                <div
+                    style="background: var(--card-bg); border: 1px solid var(--border-color); padding: 40px; border-radius: 12px;">
+                    <h2>Don't Be Caught Unprepared</h2>
+                    <p>We've curated the best-rated emergency supplies available for overnight shipping.</p>
+                    <div style="display: flex; justify-content: center; gap: 20px; margin-top: 20px;">
+                        <a href="https://www.amazon.com/s?k=portable+generator&tag=grego118-20"
+                            target="_blank">Generators</a>
+                        <a href="https://www.amazon.com/s?k=thermal+blankets&tag=grego118-20" target="_blank">Thermal
+                            Blankets</a>
+                        <a href="https://www.amazon.com/s?k=snow+shovels&tag=grego118-20" target="_blank">Snow
+                            Shovels</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 bombcyclone2026.com | Emergency Information Only. Always follow local official guidance.</p>
+        </div>
+    </footer>
+
+    <script src="js/tracker.js"></script>
+</body>
+
+</html>
